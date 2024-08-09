@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculateur combiné</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+            padding: 20px;
+        }
+        .calculator {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 800px;
+        }
+        h1, h2 {
+            color: #333;
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 20px;
+            font-weight: 500;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: #444;
+        }
+        input[type="range"] {
+            width: 100%;
+            margin-bottom: 5px;
+        }
+        .range-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #666;
+        }
+        #result {
+            margin-top: 30px;
+            font-weight: 600;
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            border: 1px solid #e9ecef;
+        }
+        .emoji {
+            margin-right: 5px;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            border: 1px solid #e9ecef;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Calculateur combiné</h1>
+        
+        <div class="section">
+            <h2>Calculateur d'expérience</h2>
+            <form id="experienceCalculator">
+                <div class="question">
+                    <label for="years"><span class="emoji">📅</span>Années d'expérience :</label>
+                    <input type="range" id="years" name="years" min="0" max="10" step="0.1" value="5">
+                    <div class="range-labels">
+                        <span>0</span>
+                        <span>2</span>
+                        <span>5</span>
+                        <span>7</span>
+                        <span>10+</span>
+                    </div>
+                </div>
+                <div class="question">
+                    <label for="projects"><span class="emoji">🎨</span>Nombre de projets réalisés :</label>
+                    <input type="range" id="projects" name="projects" min="0" max="100" step="1" value="50">
+                    <div class="range-labels">
+                        <span>0</span>
+                        <span>25</span>
+                        <span>50</span>
+                        <span>75</span>
+                        <span>100+</span>
+                    </div>
+                </div>
+                <div class="question">
+                    <label for="knowledge"><span class="emoji">🧠</span>Connaissance du secteur du client :</label>
+                    <input type="range" id="knowledge" name="knowledge" min="1" max="5" step="0.1" value="3">
+                    <div class="range-labels">
+                        <span>Novice</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>Expert</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="section">
+            <h2>Calculateur de valeur du projet</h2>
+            <form id="valueCalculator">
+                <div class="question">
+                    <label for="rarity"><span class="emoji">💎</span>Rareté / Expertise du service :</label>
+                    <input type="range" id="rarity" name="rarity" min="1" max="10" value="5">
+                    <div class="range-labels">
+                        <span>Service courant</span>
+                        <span>Expertise unique</span>
+                    </div>
+                </div>
+                <div class="question">
+                    <label for="importance"><span class="emoji">♟️</span>Importance pour le projet du client :</label>
+                    <input type="range" id="importance" name="importance" min="1" max="10" value="5">
+                    <div class="range-labels">
+                        <span>Secondaire</span>
+                        <span>Crucial</span>
+                    </div>
+                </div>
+                <div class="question">
+                    <label for="complexity"><span class="emoji">🔧</span>Complexité technique du projet :</label>
+                    <input type="range" id="complexity" name="complexity" min="1" max="10" value="5">
+                    <div class="range-labels">
+                        <span>Simple</span>
+                        <span>Très complexe</span>
+                    </div>
+                </div>
+                <div class="question">
+                    <label for="lifespan"><span class="emoji">⏳</span>Durée de vie estimée du projet :</label>
+                    <input type="range" id="lifespan" name="lifespan" min="1" max="10" value="5">
+                    <div class="range-labels">
+                        <span>Court terme</span>
+                        <span>Long terme</span>
+                    </div>
+                </div>
+                <div class="question">
+                    <label for="scope"><span class="emoji">🔬</span>Étendue du projet :</label>
+                    <input type="range" id="scope" name="scope" min="1" max="10" value="5">
+                    <div class="range-labels">
+                        <span>Petit projet</span>
+                        <span>Projet complet</span>
+                    </div>
+                </div>
+                <div class="question">
+                    <label for="roi"><span class="emoji">📈</span>Potentiel de retour sur investissement :</label>
+                    <input type="range" id="roi" name="roi" min="1" max="10" value="5">
+                    <div class="range-labels">
+                        <span>Faible/Incertain</span>
+                        <span>Élevé/Évident</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="section">
+            <h2>Calculateur de cession de droit</h2>
+            <form id="rightsCessionCalculator">
+                <div class="question">
+                    <label for="cessionScope"><span class="emoji">📏</span>Étendue de la cession :</label>
+                    <input type="range" id="cessionScope" name="cessionScope" min="1" max="3" step="1" value="2">
+                    <div class="range-labels">
+                        <span>Unique</span>
+                        <span>Limitée</span>
+                        <span>Totale</span>
+                    </div>
+                </div>
+                <div class="question">
+                    <label for="usage"><span class="emoji">🎯</span>Type d'utilisation :</label>
+                    <input type="range" id="usage" name="usage" min="1" max="4" step="1" value="2">
+                    <div class="range-labels">
+                        <span>Interne</span>
+                        <span>Éditorial</span>
+                        <span>Commercial</span>
+                        <span>Publicitaire</span>
+                    </div>
+                </div>
+                <div class="question">
+                    <label for="exclusivity"><span class="emoji">🔒</span>Exclusivité :</label>
+                    <input type="range" id="exclusivity" name="exclusivity" min="1" max="2" step="1" value="1">
+                    <div class="range-labels">
+                        <span>Non-exclusive</span>
+                        <span>Exclusive</span>
+                    </div>
+                </div>
+                <div class="question">
+                    <label for="notoriety"><span class="emoji">🌟</span>Notoriété du créateur :</label>
+                    <input type="range" id="notoriety" name="notoriety" min="1" max="4" step="1" value="2">
+                    <div class="range-labels">
+                        <span>Débutant</span>
+                        <span>Expérimenté</span>
+                        <span>Reconnu</span>
+                        <span>Célèbre</span>
+                    </div>
+                </div>
+                <div class="question">
+                    <label for="duration"><span class="emoji">⏳</span>Durée de la cession :</label>
+                    <input type="range" id="duration" name="duration" min="1" max="4" step="1" value="2">
+                    <div class="range-labels">
+                        <span>< 1 an</span>
+                        <span>1-5 ans</span>
+                        <span>> 5 ans</span>
+                        <span>Perpétuelle</span>
+                    </div>
+                </div>
+                <div class="question">
+                    <label for="modifications"><span class="emoji">✏️</span>Droit de modification :</label>
+                    <input type="range" id="modifications" name="modifications" min="1" max="3" step="1" value="2">
+                    <div class="range-labels">
+                        <span>Aucune</span>
+                        <span>Mineure</span>
+                        <span>Majeure</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('input[type="range"]');
+            const result = document.getElementById('result');
+
+            function calculateExperienceScore() {
+                const years = parseFloat(document.getElementById('years').value);
+                const projects = parseInt(document.getElementById('projects').value);
+                const knowledge = parseFloat(document.getElementById('knowledge').value);
+
+                let score = 0;
+                score += Math.min(years * 2, 20);
+                score += Math.min(projects / 5, 20);
+                score += (knowledge - 1) * 2.5;
+
+                return Math.round(score);
+            }
+
+            function calculateValueScore() {
+                const inputs = document.querySelectorAll('#valueCalculator input[type="range"]');
+                const values = Array.from(inputs).map(input => parseInt(input.value));
+                const valueScore = values.reduce((sum, value) => sum + value, 0) / values.length;
+                return Math.round((valueScore - 1) * (50 / 9));
+            }
+
+            function calculateCessionScore() {
+                const scope = parseInt(document.getElementById('cessionScope').value);
+                const usage = parseInt(document.getElementById('usage').value);
+                const exclusivity = parseInt(document.getElementById('exclusivity').value);
+                const notoriety = parseInt(document.getElementById('notoriety').value);
+                const duration = parseInt(document.getElementById('duration').value);
+                const modifications = parseInt(document.getElementById('modifications').value);
+
+                let score = scope + usage + exclusivity + notoriety + duration + modifications;
+                const maxScore = 20;
+                return Math.round((score / maxScore) * 50);
+            }
+
+            function updateResult() {
+                const experienceScore = calculateExperienceScore();
+                const valueScore = calculateValueScore();
+                const cessionScore = calculateCessionScore();
+
+                const finalScore = Math.round(((experienceScore + valueScore + cessionScore) * 10) / 250);
+
+                result.innerHTML = `
+                    <p>Résultat final : <strong>${finalScore}</strong></p>
+                `;
+            }
+
+            inputs.forEach(input => {
+                input.addEventListener('input', updateResult);
+            });
+
+            updateResult();
+        });
+    </script>
+</body>
+</html>
